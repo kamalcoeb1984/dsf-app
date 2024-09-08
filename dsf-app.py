@@ -2,6 +2,8 @@ import streamlit as st
 from dotenv import load_dotenv
 from PyPDF2 import PdfReader
 from langchain.text_splitter import CharacterTextSplitter
+from langchain.embeddings import OpenAIEmbeddings, HuggingFaceInstructEmbeddings
+from langchain.vectorstores import FAISS
 
 def get_pdf_data(pdf_data):
   pdf_txt = ""
@@ -22,6 +24,12 @@ def get_txt_chunks(raw_data):
   chunks_txt = txt_splitter.split_text(raw_data)
   return chunks_txt
 
+def get_vectorstore(txt_chunks):
+  # embeddings = OpenAIEmbeddings()
+  embeddings = HuggingFaceInstructEmbeddings(model_name = "hkunlp/instructor-xl")
+  vector_store = FAISS.from_texts(text = txt_chunks, embedding = embeddings)
+  return vector_store
+
 
 def main():
   st.write("Biits Project - Dailogue System Framework!")
@@ -40,8 +48,11 @@ def main():
         
         #get text chunks
         txt_chunks = get_txt_chunks(raw_data)
-        st.write(txt_chunks)
+        
         #create vector store
+        vStore = get_vectorstore(txt_chunks)
+        st.write(vStore)
+
 
 if __name__ == "__main__":
   main()
