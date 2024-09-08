@@ -6,3 +6,4 @@ faiss-cpu
 openai
 huggingface_hub
 InstructorEmbedding
+langchain_community
