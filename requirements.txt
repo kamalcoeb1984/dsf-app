@@ -7,3 +7,4 @@ openai
 huggingface_hub
 InstructorEmbedding
 langchain_community
+sentence-transformers
