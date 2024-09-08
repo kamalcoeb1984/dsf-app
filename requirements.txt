@@ -5,6 +5,3 @@ python-dotenv
 faiss-cpu
 openai
 huggingface_hub
-InstructorEmbedding
-langchain_community
-sentence-transformers

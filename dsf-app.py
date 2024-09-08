@@ -3,7 +3,6 @@ from dotenv import load_dotenv
 from PyPDF2 import PdfReader
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.embeddings import OpenAIEmbeddings 
-from langchain_community.embeddings import HuggingFaceInstructEmbeddings
 from langchain.vectorstores import FAISS
 
 def get_pdf_data(pdf_data):
@@ -27,8 +26,6 @@ def get_txt_chunks(raw_data):
 
 def get_vectorstore(txt_chunks):
   embeddings = OpenAIEmbeddings()
-  # embeddings = HuggingFaceInstructEmbeddings(model_name = "hkunlp/instructor-xl")
-  #embeddings = HuggingFaceInstructEmbeddings(model_name = "hkunlp/instructor-large")
   vector_store = FAISS.from_texts(text = txt_chunks, embedding = embeddings)
   return vector_store
 
