@@ -4,6 +4,9 @@ from PyPDF2 import PdfReader
 from langchain.text_splitter import CharacterTextSplitter
 from langchain_community.embeddings import OpenAIEmbeddings 
 from langchain.vectorstores import FAISS
+import os
+
+os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 
 def get_pdf_data(pdf_data):
   pdf_txt = ""
@@ -25,7 +28,7 @@ def get_txt_chunks(raw_data):
   return chunks_txt
 
 def get_vectorstore(txt_chunks):
-  embeddings = OpenAIEmbeddings()
+  embeddings = OpenAIEmbeddings(openai_api_key = os.environ["OPENAI_API_KEY"])
   vector_store = FAISS.from_texts(texts = txt_chunks, embedding = embeddings)
   return vector_store
 
