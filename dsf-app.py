@@ -53,7 +53,7 @@ def main():
         
         #create vector store
         vStore = get_vectorstore(txt_chunks)
-        st.write(vStore)
+        # st.write(vStore)
 
 
 if __name__ == "__main__":
