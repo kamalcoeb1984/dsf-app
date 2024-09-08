@@ -26,7 +26,7 @@ def get_txt_chunks(raw_data):
 
 def get_vectorstore(txt_chunks):
   embeddings = OpenAIEmbeddings()
-  vector_store = FAISS.from_texts(text = txt_chunks, embedding = embeddings)
+  vector_store = FAISS.from_texts(texts = txt_chunks, embedding = embeddings)
   return vector_store
 
 
@@ -50,7 +50,6 @@ def main():
         
         #create vector store
         vStore = get_vectorstore(txt_chunks)
-        # st.write(vStore)
 
 
 if __name__ == "__main__":
