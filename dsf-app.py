@@ -36,6 +36,7 @@ def main():
   st.text_input("Ask your queries:")
 
   with st.sidebar:
+    load_dotenv()
     st.subheader("Internal Documents!!!")
     pdf_data = st.file_uploader("Upload PDFs and click 'Process'", accept_multiple_files = True)
     
