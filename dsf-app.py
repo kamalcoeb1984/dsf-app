@@ -36,12 +36,12 @@ def get_vectorstore(txt_chunks):
 
 
 def main():
+  load_dotenv()
   st.write("Biits Project - Dailogue System Framework!")
   st.header("LLM using personal PDF documents :books:")
   st.text_input("Ask your queries:")
 
   with st.sidebar:
-    load_dotenv()
     st.subheader("Internal Documents!!!")
     pdf_data = st.file_uploader("Upload PDFs and click 'Process'", accept_multiple_files = True)
     
