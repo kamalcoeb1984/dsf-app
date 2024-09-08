@@ -13,11 +13,13 @@ def get_pdf_data(pdf_data):
 
 def get_txt_chunks(raw_data):
   
-  chunks_txt = CharacterTextSplitter(
-                                      separator = "\n",
-                                      chunk_size = 1000,
-                                      chunk_overlap = 200
-                                    )
+  txt_splitter = CharacterTextSplitter(
+    separator = "\n",
+    chunk_size = 1000,
+    chunk_overlap = 200,
+    length_function = len
+  )
+  chunks_txt = txt_splitter.split_text(raw_data)
   return chunks_txt
 
 
