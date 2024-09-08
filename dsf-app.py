@@ -1,7 +1,7 @@
 import streamlit as st
 
 def main():
-  st.write("Biits Project - Dailogue System Framework!")
+  st.write("Biits Project - Dailogue System Framework! :books:")
   st.header("LLM using personal PDF documents :books:")
   st.text_input("Ask your queries:")
 
