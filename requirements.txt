@@ -6,3 +6,5 @@ faiss-cpu
 openai
 huggingface_hub
 langchain_community
+InstructorEmbedding
+sentence-transformer
