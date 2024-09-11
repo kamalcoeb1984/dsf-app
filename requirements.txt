@@ -12,7 +12,7 @@ altair==4
 #langchain
 #python-dotenv
 faiss-cpu
-tiktoken
+#tiktoken
 #openai
 #huggingface_hub
 #langchain_community
