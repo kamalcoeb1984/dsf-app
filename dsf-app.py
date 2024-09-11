@@ -38,7 +38,7 @@ def get_vectorstore(txt_chunks):
   vectorstore = FAISS.from_texts(texts=text_chunks, embedding=embeddings)
   return vectorstore
 
-def get_conversation_chain(vectorstore):
+def get_conversation_chain(vStore):
     llm = ChatOpenAI()
     # llm = HuggingFaceHub(repo_id="google/flan-t5-xxl", model_kwargs={"temperature":0.5, "max_length":512})
 
@@ -46,7 +46,7 @@ def get_conversation_chain(vectorstore):
         memory_key='chat_history', return_messages=True)
     conversation_chain = ConversationalRetrievalChain.from_llm(
         llm=llm,
-        retriever=vectorstore.as_retriever(),
+        retriever=vStore.as_retriever(),
         memory=memory
     )
     return conversation_chain
@@ -68,8 +68,6 @@ def main():
   load_dotenv()
   st.write("Biits Project - Dailogue System Framework!")
   
-  st.header("LLM using personal PDF documents :books:")
-  st.text_input("Ask your queries:")
   st.write(css, unsafe_allow_html=True)
 
   if "conversation" not in st.session_state:
@@ -77,8 +75,8 @@ def main():
   if "chat_history" not in st.session_state:
       st.session_state.chat_history = None
 
-  st.header("Chat with multiple PDFs :books:")
-  user_question = st.text_input("Ask a question about your documents:")
+  st.header("LLM using personal PDF documents :books:")
+  user_question = st.text_input("Ask your queries:")
   if user_question:
       handle_userinput(user_question)
     
@@ -99,7 +97,7 @@ def main():
         vStore = get_vectorstore(txt_chunks)
 
         # create conversation chain
-        st.session_state.conversation = get_conversation_chain(vectorstore)
+        st.session_state.conversation = get_conversation_chain(vStore)
 
 
 if __name__ == "__main__":
