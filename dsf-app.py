@@ -35,7 +35,7 @@ def get_txt_chunks(raw_data):
 def get_vectorstore(txt_chunks):
   embeddings = OpenAIEmbeddings()
   # embeddings = HuggingFaceInstructEmbeddings(model_name="hkunlp/instructor-xl")
-  vectorstore = FAISS.from_texts(texts=text_chunks, embedding=embeddings)
+  vectorstore = FAISS.from_texts(texts=txt_chunks, embedding=embeddings)
   return vectorstore
 
 def get_conversation_chain(vStore):
