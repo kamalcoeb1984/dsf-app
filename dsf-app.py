@@ -36,7 +36,8 @@ def get_vectorstore(txt_chunks):
     # With the `text-embedding-3` class
     # of models, you can specify the size
     # of the embeddings you want returned.
-    # dimensions=1024)
+    # dimensions=1024
+                               )
   # embeddings = HuggingFaceInstructEmbeddings(model_name="hkunlp/instructor-xl")
   vectorstore = FAISS.from_texts(texts=txt_chunks, embedding=embeddings)
   return vectorstore
