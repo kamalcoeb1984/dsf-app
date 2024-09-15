@@ -33,8 +33,8 @@ def get_txt_chunks(raw_data):
   return chunks_txt
 
 def get_vectorstore(txt_chunks):
-  embeddings = OpenAIEmbeddings()
-  # embeddings = HuggingFaceInstructEmbeddings(model_name="hkunlp/instructor-xl")
+  # embeddings = OpenAIEmbeddings()
+  embeddings = HuggingFaceInstructEmbeddings(model_name="hkunlp/instructor-xl")
   vectorstore = FAISS.from_texts(texts=txt_chunks, embedding=embeddings)
   return vectorstore
 
