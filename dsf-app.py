@@ -66,10 +66,10 @@ def handle_userinput(user_question):
 
 def main():
   load_dotenv()
-  os.environ["OPENAI_API_KEY"] = st.secerets["OPENAI_API_KEY"]
-  os.environ["LANGCHAIN_API_KEY"] = st.secerets["LANGCHAIN_API_KEY"]
-  os.environ["HUGGINGFACEHUB_API_TOKEN"] = st.secerets["HUGGINGFACEHUB_API_TOKEN"]
-  os.environ["LANGCHAIN_PROJECT"] = st.secerets["LANGCHAIN_PROJECT"]
+  os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
+  os.environ["LANGCHAIN_API_KEY"] = st.secrets["LANGCHAIN_API_KEY"]
+  os.environ["HUGGINGFACEHUB_API_TOKEN"] = st.secrets["HUGGINGFACEHUB_API_TOKEN"]
+  os.environ["LANGCHAIN_PROJECT"] = st.secrets["LANGCHAIN_PROJECT"]
   
   
   st.write("Biits Project - Dailogue System Framework!")
