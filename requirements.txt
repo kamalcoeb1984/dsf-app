@@ -13,9 +13,9 @@ langchain
 python-dotenv
 faiss-cpu
 #tiktoken
-openai
+#openai
 huggingface_hub
 langchain_community
 InstructorEmbedding
-langchain_openai
+langchain-openai
 #sentence-transformers
