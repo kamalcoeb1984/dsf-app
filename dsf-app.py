@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 from PyPDF2 import PdfReader
 from langchain.text_splitter import CharacterTextSplitter
 #from langchain.embeddings import OpenAIEmbeddings, HuggingFaceInstructEmbeddings
-from langchain_openai import OpenAIEmbeddings
+from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 from langchain.vectorstores import FAISS
 import os
 from langchain.chat_models import ChatOpenAI
@@ -43,7 +43,14 @@ def get_vectorstore(txt_chunks):
   return vectorstore
 
 def get_conversation_chain(vStore):
-    llm = ChatOpenAI()
+    #llm = ChatOpenAI()
+    llm = ChatOpenAI(
+    model="gpt-4o",
+    temperature=0,
+    max_tokens=None,
+    timeout=None,
+    max_retries=2,
+ )
     # llm = HuggingFaceHub(repo_id="google/flan-t5-xxl", model_kwargs={"temperature":0.5, "max_length":512})
 
     memory = ConversationBufferMemory(
