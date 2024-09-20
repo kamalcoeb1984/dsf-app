@@ -84,7 +84,7 @@ def main():
     os.environ["LANGCHAIN_PROJECT"] = st.secrets["LANGCHAIN_PROJECT"]
     
     
-    st.header("Dailogue System!!!")
+    st.header("Personalized Dailogue System!!!")
     
     st.write(css, unsafe_allow_html=True)
 
