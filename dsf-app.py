@@ -84,7 +84,7 @@ def main():
     os.environ["LANGCHAIN_PROJECT"] = st.secrets["LANGCHAIN_PROJECT"]
     
     
-    st.header("Biits Project - Dailogue System Framework!")
+    st.header("Dailogue System!!!")
     
     st.write(css, unsafe_allow_html=True)
 
